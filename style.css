@@ -424,36 +424,7 @@ footer {
         max-width: 400px; /* Prevents images from getting too wide on mobile */
     }
 }
-font-family: 'Poppins', sans-serif;
-    font-size: 1rem;
-}
-.contact-form textarea {
-    resize: vertical;
-    min-height: 150px;
-}
-.contact-form .submit-button {
-    width: 100%;
-    padding: 1rem;
-    background-color: #FF8C00; /* Changed to orange */
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.2rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-.contact-form .submit-button:hover {
-    background-color: #CC7000; /* Darker orange on hover */
-}
-/* New Style for Intro List on Maintenance Package Page */
-.intro-list {
-    list-style-type: disc;
-    text-align: left;
-    margin-bottom: 2rem;
-}
-.intro-list li {
-    background: none;
+ackground: none;
     box-shadow: none;
     padding-left: 0;
     margin-bottom: 1rem;
@@ -1343,6 +1314,7 @@ footer {
         max-width: 400px; /* Prevents images from getting too wide on mobile */
     }
 }
+
 
 
 
