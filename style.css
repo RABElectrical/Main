@@ -81,19 +81,21 @@ nav a:hover {
     }
     nav ul {
         flex-direction: row; /* Arranges the links horizontally */
-        justify-content: space-around; /* **This is the key change to space them out** */
+        justify-content: center; /* **This centers all the links as a group** */
         align-items: center;
         background-color: #15316f;
         width: 100%;
         margin: 0;
         padding: 0.5rem 0; /* Adjust this value to control the vertical height of the bar */
+        flex-wrap: nowrap; /* **Prevent wrapping to keep links on one line** */
     }
     nav a {
         display: block;
         width: auto;
         text-align: center;
-        font-size: 0.7rem; /* Adjust this to make the font size smaller */
-        padding: 0.25rem 0.25rem; /* Adjust this to change the padding around the text */
+        font-size: 0.6rem; /* Adjust this to make the font size smaller */
+        padding: 0.2rem 0.2rem; /* Adjust this to change the padding around the text */
+        white-space: nowrap;
     }
     .menu-toggle {
         display: none;
@@ -424,37 +426,7 @@ footer {
         max-width: 400px; /* Prevents images from getting too wide on mobile */
     }
 }
-ackground: none;
-    box-shadow: none;
-    padding-left: 0;
-    margin-bottom: 1rem;
-    font-weight: 700;
-}
-.intro-list li .blue-bold {
-    display: inline;
-}
-
-/* NEW STYLE for the opening sentence of each section */
-.intro-sentence {
-    display: block;
-    font-weight: 700;
-    color: #15316f;
-    margin-bottom: 1rem;
-}
-
-/* Testimonials Section */
-.testimonial-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    margin-top: 2rem;
-}
-.testimonial-card {
-    background-color: #f0f4f8; /* Light blue background */
-    padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    border-left: 5px solid #15316f; /* Blue accent line */
+line */
     transition: all 0.3s ease-in-out;
 }
 .testimonial-card:hover {
@@ -1314,6 +1286,7 @@ footer {
         max-width: 400px; /* Prevents images from getting too wide on mobile */
     }
 }
+
 
 
 
