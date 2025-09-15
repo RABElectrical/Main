@@ -1,12 +1,4 @@
-/* Universal Box-Sizing Fix */
-*, *::before, *::after {
-    box-sizing: border-box;
-}
 
-html, body {
-    margin: 0;
-    padding: 0;
-}
 /* Universal CSS Reset */
 html, body {
     margin: 0;
@@ -576,4 +568,5 @@ footer {
         max-width: 400px;
     }
 }
+
 
