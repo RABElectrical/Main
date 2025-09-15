@@ -8,6 +8,7 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
+    text-align: center; /* This centers all text by default */
 }
 
 /* Header & Navigation */
@@ -20,19 +21,16 @@ header {
     flex-direction: column;
     align-items: center;
 }
-
 .header-logo {
     width: 250px;
     height: auto;
     margin-bottom: -0.75rem;
 }
-
 nav {
     background-color: #15316f;
     width: 100%;
     padding: 1rem 0;
 }
-
 nav ul {
     list-style-type: none;
     padding: 0;
@@ -42,7 +40,6 @@ nav ul {
     gap: 2rem;
     flex-wrap: wrap;
 }
-
 nav a {
     color: white;
     text-decoration: none;
@@ -51,7 +48,6 @@ nav a {
     transition: background-color 0.3s;
     border-radius: 5px;
 }
-
 nav a:hover {
     background-color: #0d2146;
 }
@@ -68,7 +64,6 @@ nav a:hover {
     flex-direction: column;
     justify-content: space-between;
 }
-
 .menu-toggle .bar {
     width: 100%;
     height: 3px;
@@ -85,31 +80,19 @@ nav a:hover {
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
-
 h1, h2, h3 {
     color: #15316f;
     margin-bottom: 1.5rem;
-    text-align: center;
 }
-
-h1, h2 {
-    font-size: 2rem;
-}
-
-h3 {
-    font-size: 1.5rem;
-}
-
+h1, h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
 p, li {
     color: #555555;
-    text-align: left;
 }
-
 .blue-bold {
     color: #15316f;
     font-weight: 700;
 }
-
 .cta-button {
     display: block;
     padding: 1rem 2rem;
@@ -121,9 +104,7 @@ p, li {
     font-weight: 700;
     margin: 1.5rem auto 0;
     transition: background-color 0.3s;
-    max-width: 300px;
 }
-
 .cta-button:hover {
     background-color: #CC7000;
 }
@@ -131,9 +112,7 @@ p, li {
 /* Section Specific Styles */
 .hero p {
     font-size: 1.1rem;
-    text-align: center;
 }
-
 .services-list ul {
     list-style-type: none;
     padding: 0;
@@ -141,7 +120,6 @@ p, li {
     grid-template-columns: 1fr;
     gap: 10px;
 }
-
 .services-list li {
     background: #f9f9f9;
     padding: 1rem;
@@ -150,14 +128,12 @@ p, li {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease-in-out;
 }
-
 .services-list li:hover {
     background-color: #FF8C00;
     transform: translateY(-3px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     color: white;
 }
-
 .path-to-mind ol {
     list-style-type: none;
     padding: 0;
@@ -165,29 +141,24 @@ p, li {
     flex-direction: column;
     gap: 1rem;
 }
-
 .path-to-mind ol li {
     background: #f9f9f9;
     padding: 1rem;
     border-radius: 5px;
     font-weight: 700;
     color: #15316f;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     transition: all 0.3s ease-in-out;
 }
-
 .path-to-mind ol li:hover {
     background-color: #FF8C00;
     transform: translateY(-3px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     color: white;
 }
-
 .filter-buttons {
     margin-bottom: 2rem;
 }
-
 .filter-buttons a {
     display: inline-block;
     padding: 0.5rem 1.5rem;
@@ -199,43 +170,33 @@ p, li {
     margin: 0 5px;
     transition: background-color 0.3s;
 }
-
 .filter-buttons a:hover {
     background-color: #d1d1d1;
 }
-
 .filter-buttons a.active {
     background-color: #15316f;
     color: white;
 }
-
 footer {
     background-color: #15316f;
     color: white;
     padding: 1.5rem;
     margin-top: 2rem;
-    text-align: center;
 }
-
 .contact-form {
     max-width: 600px;
     margin: 2rem auto;
 }
-
 .contact-form .form-group {
     margin-bottom: 1rem;
-    text-align: left;
 }
-
 .contact-form label {
     display: block;
     margin-bottom: 0.5rem;
     color: #15316f;
     font-weight: 700;
 }
-
-.contact-form input,
-.contact-form textarea {
+.contact-form input, .contact-form textarea {
     width: 100%;
     padding: 0.75rem;
     border: 1px solid #ccc;
@@ -243,13 +204,12 @@ footer {
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     font-size: 1rem;
+    text-align: left; /* Override for form inputs */
 }
-
 .contact-form textarea {
     resize: vertical;
     min-height: 150px;
 }
-
 .contact-form .submit-button {
     width: 100%;
     padding: 1rem;
@@ -262,17 +222,14 @@ footer {
     cursor: pointer;
     transition: background-color 0.3s;
 }
-
 .contact-form .submit-button:hover {
     background-color: #CC7000;
 }
-
 .intro-list {
     list-style-type: disc;
-    text-align: left;
+    text-align: left; /* Override for the list items */
     margin-bottom: 2rem;
 }
-
 .intro-list li {
     background: none;
     box-shadow: none;
@@ -280,26 +237,21 @@ footer {
     margin-bottom: 1rem;
     font-weight: 700;
 }
-
 .intro-list li .blue-bold {
     display: inline;
 }
-
 .intro-sentence {
     display: block;
     font-weight: 700;
     color: #15316f;
     margin-bottom: 1rem;
-    text-align: center;
 }
-
 .testimonial-container {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
     margin-top: 2rem;
 }
-
 .testimonial-card {
     background-color: #f0f4f8;
     padding: 1.5rem;
@@ -308,27 +260,22 @@ footer {
     border-left: 5px solid #15316f;
     transition: all 0.3s ease-in-out;
 }
-
 .testimonial-card:hover {
     background-color: #FF8C00;
     transform: translateY(-3px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
     border-left: 5px solid white;
 }
-
 .testimonial-card:hover p,
 .testimonial-card:hover h4 {
     color: white;
 }
-
 .testimonial-card p {
     font-style: italic;
     font-size: 1.1rem;
     color: #444444;
     margin-bottom: 1rem;
-    text-align: left;
 }
-
 .testimonial-card h4 {
     text-align: right;
     font-size: 1rem;
@@ -344,31 +291,25 @@ footer {
     gap: 1rem;
     margin-top: 2rem;
 }
-
 .secondary-cta {
     background-color: #e9e9e9;
     color: #15316f;
     transition: background-color 0.3s;
 }
-
 .secondary-cta:hover {
     background-color: #d1d1d1;
 }
-
 .slogan-text {
     color: #333333;
     font-weight: normal;
 }
-
 .blue-spark {
     color: #15316f;
     font-weight: 700;
 }
-
 .logo-container {
     position: relative;
 }
-
 .section-logo {
     position: absolute;
     margin: 0 0 60px auto;
@@ -380,7 +321,6 @@ footer {
 .gallery-section {
     margin: 2rem 0;
 }
-
 .image-gallery-grid {
     display: flex;
     flex-wrap: wrap;
@@ -388,7 +328,6 @@ footer {
     gap: 1.5rem;
     margin-top: 2rem;
 }
-
 .image-card {
     flex-basis: 30%;
     flex-grow: 1;
@@ -397,23 +336,20 @@ footer {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
 }
-
 .image-card:hover {
     transform: translateY(-5px);
 }
-
 .image-card img {
     width: 100%;
     height: auto;
     display: block;
     transition: transform 0.3s;
 }
-
 .image-card img:hover {
     transform: scale(1.05);
 }
 
-/* ✅ New Packages Styles */
+/* New Packages Styles */
 .packages-container {
     display: flex;
     flex-wrap: wrap;
@@ -421,7 +357,6 @@ footer {
     gap: 1.5rem;
     margin-top: 2rem;
 }
-
 .package-card {
     background-color: #f9f9f9;
     padding: 2rem;
@@ -432,40 +367,32 @@ footer {
     border: 3px solid transparent;
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s, color 0.3s;
 }
-
 .package-card.bronze {
     border-color: #CD7F32;
 }
-
 .package-card.silver {
     border-color: #C0C0C0;
 }
-
 .package-card.gold {
     border-color: #FFD700;
 }
-
 .package-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
     background-color: #FF8C00;
     color: white;
 }
-
 .package-card:hover * {
     color: white !important;
 }
-
 .package-card h3 {
     margin-top: 0;
     font-size: 1.8rem;
     color: #15316f;
 }
-
 .package-card p {
     text-align: center;
 }
-
 .package-cta {
     display: inline-block;
     padding: 0.75rem 1.5rem;
@@ -477,7 +404,6 @@ footer {
     margin-top: 1.5rem;
     transition: background-color 0.3s;
 }
-
 .package-cta:hover {
     background-color: #0d2146;
 }
@@ -486,7 +412,6 @@ footer {
 .trust-signals {
     text-align: center;
 }
-
 .credential-logos {
     display: flex;
     justify-content: center;
@@ -494,7 +419,6 @@ footer {
     gap: 1.5rem;
     margin-top: 1.5rem;
 }
-
 .credential-logo {
     height: 70px;
     width: auto;
@@ -502,7 +426,6 @@ footer {
     opacity: 0.8;
     transition: opacity 0.3s;
 }
-
 .credential-logo:hover {
     opacity: 1;
 }
@@ -512,11 +435,9 @@ footer {
     header {
         padding-bottom: 0;
     }
-
     nav {
         padding: 0;
     }
-
     nav ul {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -529,36 +450,30 @@ footer {
         padding: 0.5rem 0;
         gap: 0.5rem 1rem;
     }
-
     nav ul li:nth-child(1),
     nav ul li:nth-child(2),
     nav ul li:nth-child(3),
     nav ul li:nth-child(4) {
         grid-row: 1;
     }
-
     nav ul li:nth-child(5),
     nav ul li:nth-child(6) {
         grid-row: 2;
         grid-column: span 2;
     }
-
     nav a {
         display: block;
         font-size: 0.75rem;
         padding: 0.25rem 0.5rem;
         white-space: nowrap;
     }
-
     .menu-toggle {
         display: none;
     }
-
     .image-gallery-grid {
         flex-direction: column;
         align-items: center;
     }
-
     .image-card {
         width: 100%;
         max-width: 400px;
