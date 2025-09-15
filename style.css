@@ -30,7 +30,9 @@ nav {
     background-color: #15316f;
     width: 100%;
     padding: 1rem 0;
+    height: 100px; /* This makes the nav bar a fixed height */
 }
+
 nav ul {
     list-style-type: none;
     padding: 0;
@@ -39,6 +41,8 @@ nav ul {
     justify-content: center;
     gap: 2rem;
     flex-wrap: wrap;
+    align-items: center; /* This centers the links vertically */
+    height: 100%; /* Makes the ul take up the full height of the nav container */
 }
 nav a {
     color: white;
@@ -479,3 +483,4 @@ footer {
         max-width: 400px;
     }
 }
+
