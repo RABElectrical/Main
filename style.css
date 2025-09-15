@@ -567,4 +567,7 @@ footer {
         max-width: 400px;
     }
 }
-
+.container {
+    padding-left: 0;
+    padding-right: 0;
+}
