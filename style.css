@@ -8,7 +8,6 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    text-align: center; /* This centers all text by default */
 }
 
 /* Header & Navigation */
@@ -83,11 +82,13 @@ nav a:hover {
 h1, h2, h3 {
     color: #15316f;
     margin-bottom: 1.5rem;
+    text-align: center;
 }
 h1, h2 { font-size: 2rem; }
 h3 { font-size: 1.5rem; }
 p, li {
     color: #555555;
+    text-align: left;
 }
 .blue-bold {
     color: #15316f;
@@ -104,6 +105,7 @@ p, li {
     font-weight: 700;
     margin: 1.5rem auto 0;
     transition: background-color 0.3s;
+    max-width: 300px;
 }
 .cta-button:hover {
     background-color: #CC7000;
@@ -112,6 +114,7 @@ p, li {
 /* Section Specific Styles */
 .hero p {
     font-size: 1.1rem;
+    text-align: center;
 }
 .services-list ul {
     list-style-type: none;
@@ -147,6 +150,7 @@ p, li {
     border-radius: 5px;
     font-weight: 700;
     color: #15316f;
+    text-align: center;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     transition: all 0.3s ease-in-out;
 }
@@ -182,6 +186,7 @@ footer {
     color: white;
     padding: 1.5rem;
     margin-top: 2rem;
+    text-align: center;
 }
 .contact-form {
     max-width: 600px;
@@ -189,6 +194,7 @@ footer {
 }
 .contact-form .form-group {
     margin-bottom: 1rem;
+    text-align: left;
 }
 .contact-form label {
     display: block;
@@ -204,7 +210,6 @@ footer {
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     font-size: 1rem;
-    text-align: left; /* Override for form inputs */
 }
 .contact-form textarea {
     resize: vertical;
@@ -227,7 +232,7 @@ footer {
 }
 .intro-list {
     list-style-type: disc;
-    text-align: left; /* Override for the list items */
+    text-align: left;
     margin-bottom: 2rem;
 }
 .intro-list li {
@@ -245,6 +250,7 @@ footer {
     font-weight: 700;
     color: #15316f;
     margin-bottom: 1rem;
+    text-align: center;
 }
 .testimonial-container {
     display: flex;
@@ -275,6 +281,7 @@ footer {
     font-size: 1.1rem;
     color: #444444;
     margin-bottom: 1rem;
+    text-align: left;
 }
 .testimonial-card h4 {
     text-align: right;
@@ -347,6 +354,87 @@ footer {
 }
 .image-card img:hover {
     transform: scale(1.05);
+}
+
+/* New Packages Styles */
+.packages-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+.package-card {
+    background-color: #f9f9f9;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    flex: 1 1 300px;
+    border: 3px solid transparent;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s, color 0.3s;
+}
+.package-card.bronze {
+    border-color: #CD7F32;
+}
+.package-card.silver {
+    border-color: #C0C0C0;
+}
+.package-card.gold {
+    border-color: #FFD700;
+}
+.package-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    background-color: #FF8C00;
+    color: white;
+}
+.package-card:hover * {
+    color: white !important;
+}
+.package-card h3 {
+    margin-top: 0;
+    font-size: 1.8rem;
+    color: #15316f;
+}
+.package-card p {
+    text-align: center;
+}
+.package-cta {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #15316f;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    transition: background-color 0.3s;
+}
+.package-cta:hover {
+    background-color: #0d2146;
+}
+
+/* Trust Signals Section */
+.trust-signals {
+    text-align: center;
+}
+.credential-logos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+.credential-logo {
+    height: 70px;
+    width: auto;
+    max-width: 150px;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+.credential-logo:hover {
+    opacity: 1;
 }
 
 /* ✅ Mobile Fix */
