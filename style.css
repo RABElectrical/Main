@@ -8,6 +8,10 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
+}
+
+/* New, specific text alignment rules */
+.container, .trust-signals, .gallery-section, .services-summary {
     text-align: center;
 }
 
@@ -82,7 +86,7 @@ nav a:hover {
 
 /* Main Content & Universal Styles */
 main {
-    min-height: 70vh; /* Prevents short pages from squeezing the layout */
+    min-height: 70vh;
 }
 
 .container {
