@@ -7,7 +7,9 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
-        /* Base Styles */
+        /* ---------------------------------------------------------------------- */
+        /* Base Styles - MODIFIED */
+        /* ---------------------------------------------------------------------- */
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #f9f9f9;
@@ -15,6 +17,8 @@
             margin: 0;
             padding: 0;
             line-height: 1.6;
+            /* 💥 CRITICAL FIX: Add padding to push content down below the fixed bar */
+            padding-top: 50px; 
         }
 
         /* New, specific text alignment rules */
@@ -22,7 +26,54 @@
             text-align: center;
         }
 
+        /* ---------------------------------------------------------------------- */
+        /* NEW: Fixed Top Contact Bar Styles - Left-Aligned and White Links (Universal) */
+        /* ---------------------------------------------------------------------- */
+        .fixed-contact-bar {
+            /* Locks the bar to the top of the browser viewport */
+            position: fixed;
+            top: 0;
+            left: 0;
+            /* Spans the full width */
+            width: 100%;
+            /* Use your dark blue for a strong contrast */
+            background-color: #15316f; 
+            color: white;
+            padding: 0.5rem 2rem;
+            /* Use flexbox to space the items */
+            display: flex;
+            /* Pushes content to the LEFT side for desktop */
+            justify-content: flex-start; 
+            align-items: center;
+            font-size: 0.9rem;
+            /* Ensure it sits above all other content */
+            z-index: 1000; 
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Style for the text/phone/email links within the bar */
+        .fixed-contact-bar a, 
+        .fixed-contact-bar span {
+            /* CRITICAL FIX: Use !important to override conflicting color rules */
+            color: white !important; 
+            text-decoration: none;
+            font-weight: 700;
+            /* Adjusted margin for left alignment on desktop */
+            margin-right: 1.5rem; 
+            margin-left: 0;
+        }
+
+        /* Highlight the key links with your CTA color on hover */
+        .fixed-contact-bar a:hover {
+            /* Hover color remains orange for user feedback */
+            color: #FF8C00 !important; 
+            text-decoration: underline;
+        }
+
+
+        /* ---------------------------------------------------------------------- */
         /* Header & Navigation */
+        /* ---------------------------------------------------------------------- */
         header {
             background-color: #f0f0f0;
             color: #15316f;
@@ -91,7 +142,9 @@
             transition: all 0.3s ease-in-out;
         }
 
+        /* ---------------------------------------------------------------------- */
         /* Main Content & Universal Styles */
+        /* ---------------------------------------------------------------------- */
         main {
             min-height: 70vh;
         }
@@ -139,7 +192,9 @@
             background-color: #CC7000;
         }
 
+        /* ---------------------------------------------------------------------- */
         /* Section Specific Styles */
+        /* ---------------------------------------------------------------------- */
         .hero p {
             font-size: 1.1rem;
         }
@@ -512,8 +567,33 @@
             opacity: 1;
         }
 
-        /* Mobile Fix */
+        /* ---------------------------------------------------------------------- */
+        /* Mobile Fix - MODIFIED */
+        /* ---------------------------------------------------------------------- */
         @media (max-width: 768px) {
+            /* MODIFIED: Mobile-specific styles for the fixed bar */
+            .fixed-contact-bar {
+                font-size: 0.75rem;
+                padding: 0.5rem 1rem;
+                /* Aligns items centrally for small screens */
+                justify-content: center; 
+                gap: 1rem;
+            }
+            
+            .fixed-contact-bar a, 
+            .fixed-contact-bar span {
+                margin-right: 0; 
+            }
+            
+            .fixed-contact-bar span {
+                display: none; /* Hide the "Need an Electrician?" text to save space */
+            }
+            
+            /* MODIFIED: Adjust body padding for mobile bar height */
+            body {
+                padding-top: 40px; 
+            }
+
             header {
                 padding-bottom: 0;
             }
@@ -607,113 +687,4 @@
       "name": "Walsall"
     },
     {
-      "@type": "Place",
-      "name": "Sedgley"
-    },
-    {
-      "@type": "Place",
-      "name": "Wednesbury"
-    },
-    {
-      "@type": "Place",
-      "name": "Bilston"
-    },
-    {
-      "@type": "Place",
-      "name": "Coseley"
-    },
-    {
-      "@type": "Place",
-      "name": "Tettenhall"
-    },
-    {
-      "@type": "Place",
-      "name": "Codsall"
-    },
-    {
-      "@type": "Place",
-      "name": "Penderford"
-    }
-  ]
-}
-</script>
-<meta name="google-site-verification" content="68lqJXIe7yGfNS-8OA5OT2t36Ox__NYJnV0yMZX1AlQ" />
-</head>
-<body>
-    <div class="fixed-contact-bar">
-    <span>Need an Electrician?</span>
-    <a href="tel:07801509111">📞 07801 509 111</a>
-    <a href="mailto:enquiries@rab-electricalltd.co.uk">📧 enquiries@rab-electricalltd.co.uk</a>
-</div>
-    <header>
-        <img src="transparent logo.png" alt="R.A.B Electrical Ltd. Logo" class="header-logo">
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="electricalmaintenance.html">Maintenance</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="testimonials.html">Testimonials</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main class="container">
-        <section class="hero-section">
-            <h3>
-                <span class="slogan-text">Your <span class="blue-spark">R</span>eliable, <span class="blue-spark">A</span>ffordable, <span class="blue-spark">B</span>right Spark</span>
-            </h3>
-            <p>
-                We provide a comprehensive range of electrical services for commercial, industrial, and domestic clients. Our solutions are designed to ensure safety, efficiency, and full compliance for every project.
-            </p>
-            <a href="contact.html" class="cta-button">Get a Free Quote Now</a>
-        </section>
-
-        <section class="services-summary">
-            <h2>Our Services</h2>
-            <p>From full rewires to routine maintenance and safety inspections, we cover all your electrical needs. Explore our services or learn more about our specialised maintenance packages for businesses.</p>
-            <div class="cta-group">
-                <a href="services.html" class="cta-button secondary-cta">View Our Services</a>
-                <a href="electricalmaintenance.html" class="cta-button">Maintenance Packages</a>
-            </div>
-        </section>
-
-        <section class="gallery-section">
-            <h2>WE ARE A TRUSTED CONTRACTOR</h2>
-            <div class="image-gallery-grid">
-                <div class="image-card">
-                    <img src="images/emma.jpg" alt="CAR CHARGER">
-                </div>
-                <div class="image-card">
-                    <img src="images/NAPIT.jpg" alt="NAPIT APPROVED">
-                </div>
-                <div class="image-card">
-                    <img src="images/me1.png" alt="IMAGE OF OUR DIRECTOR">
-                </div>
-            </div>
-        </section>
-
-        <section class="testimonials-preview">
-            <h2>What Our Clients Say</h2>
-            <div class="testimonial-container">
-                <div class="testimonial-card">
-                    <p>"The team was professional, efficient, and the work was completed on time and within budget. We couldn't be happier with the results."</p>
-                    <h4>- John S. (Office Manager)</h4>
-                </div>
-                <div class="testimonial-card">
-                    <p>"They were thorough, explained everything clearly, and gave us complete peace of mind. Highly recommended!"</p>
-                    <h4>- Sarah M. (Homeowner)</h4>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        &copy; 2025 R.A.B Electrical Ltd.
-    </footer>
-</body>
-</html>
-
-
-
+      "@
