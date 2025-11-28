@@ -1,49 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
 /* ---------------------------------------------------------------------- */
-/* NEW: Fixed Top Contact Bar Styles */
-/* ---------------------------------------------------------------------- */
-.fixed-contact-bar {
-    /* Locks the bar to the top of the browser viewport */
-    position: fixed;
-    top: 0;
-    left: 0;
-    /* Spans the full width */
-    width: 100%;
-    /* Use your dark blue for a strong contrast */
-    background-color: #15316f; 
-    color: white;
-    padding: 0.5rem 2rem;
-    /* Use flexbox to space the items */
-    display: flex;
-    justify-content: flex-end; /* Pushes content to the right */
-    align-items: center;
-    font-size: 0.9rem;
-    /* Ensure it sits above all other content */
-    z-index: 1000; 
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-/* Style for the text/phone/email links within the bar */
-.fixed-contact-bar a, 
-.fixed-contact-bar span {
-    color: white; /* Default text is white */
-    text-decoration: none;
-    font-weight: 700;
-    margin-left: 1.5rem; 
-}
-
-/* Highlight the key links with your CTA color */
-.fixed-contact-bar a {
-    color: #FF8C00; 
-}
-
-.fixed-contact-bar a:hover {
-    color: #CC7000; /* Darker orange on hover */
-    text-decoration: underline;
-}
-
-/* ---------------------------------------------------------------------- */
 /* Base Styles - MODIFIED */
 /* ---------------------------------------------------------------------- */
 body {
@@ -63,7 +20,53 @@ body {
     text-align: center;
 }
 
-/* Header & Navigation (No Changes) */
+/* ---------------------------------------------------------------------- */
+/* NEW: Fixed Top Contact Bar Styles - Left-Aligned and White Links (Universal) */
+/* ---------------------------------------------------------------------- */
+.fixed-contact-bar {
+    /* Locks the bar to the top of the browser viewport */
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* Spans the full width */
+    width: 100%;
+    /* Use your dark blue for a strong contrast */
+    background-color: #15316f; 
+    color: white;
+    padding: 0.5rem 2rem;
+    /* Use flexbox to space the items */
+    display: flex;
+    /* Pushes content to the LEFT side for desktop */
+    justify-content: flex-start; 
+    align-items: center;
+    font-size: 0.9rem;
+    /* Ensure it sits above all other content */
+    z-index: 1000; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Style for the text/phone/email links within the bar */
+.fixed-contact-bar a, 
+.fixed-contact-bar span {
+    /* 💥 FIXED: Set text/link color to WHITE globally */
+    color: white; 
+    text-decoration: none;
+    font-weight: 700;
+    /* Adjusted margin for left alignment on desktop */
+    margin-right: 1.5rem; 
+    margin-left: 0;
+}
+
+/* Highlight the key links with your CTA color on hover */
+.fixed-contact-bar a:hover {
+    /* Hover color remains orange for user feedback */
+    color: #FF8C00; 
+    text-decoration: underline;
+}
+
+/* ---------------------------------------------------------------------- */
+/* Header & Navigation */
+/* ---------------------------------------------------------------------- */
 header {
     background-color: #f0f0f0;
     color: #15316f;
@@ -112,7 +115,7 @@ nav a:hover {
     background-color: #0d2146;
 }
 
-/* Mobile Menu Toggle (No Changes) */
+/* Mobile Menu Toggle */
 .menu-toggle {
     display: none;
     cursor: pointer;
@@ -132,7 +135,9 @@ nav a:hover {
     transition: all 0.3s ease-in-out;
 }
 
-/* Main Content & Universal Styles (No Changes) */
+/* ---------------------------------------------------------------------- */
+/* Main Content & Universal Styles */
+/* ---------------------------------------------------------------------- */
 main {
     min-height: 70vh;
 }
@@ -180,7 +185,9 @@ p, li {
     background-color: #CC7000;
 }
 
-/* Section Specific Styles (No Changes) */
+/* ---------------------------------------------------------------------- */
+/* Section Specific Styles */
+/* ---------------------------------------------------------------------- */
 .hero p {
     font-size: 1.1rem;
 }
@@ -382,7 +389,7 @@ footer {
     margin: 0;
 }
 
-/* Homepage specific styles (No Changes) */
+/* Homepage specific styles */
 .services-summary .cta-group {
     display: flex;
     flex-wrap: wrap;
@@ -422,7 +429,7 @@ footer {
     height: auto;
 }
 
-/* Gallery Styles (No Changes) */
+/* Gallery Styles */
 .gallery-section {
     margin: 2rem 0;
 }
@@ -459,7 +466,7 @@ footer {
     transform: scale(1.05);
 }
 
-/* New Packages Styles (No Changes) */
+/* New Packages Styles */
 .packages-container {
     display: flex;
     flex-wrap: wrap;
@@ -528,7 +535,7 @@ footer {
     background-color: #0d2146;
 }
 
-/* Trust Signals Section (No Changes) */
+/* Trust Signals Section */
 .trust-signals {
     text-align: center;
 }
@@ -553,27 +560,29 @@ footer {
     opacity: 1;
 }
 
+/* ---------------------------------------------------------------------- */
 /* Mobile Fix - MODIFIED */
+/* ---------------------------------------------------------------------- */
 @media (max-width: 768px) {
-    /* MODIFIED: Add a rule to handle the fixed bar on mobile */
+    /* MODIFIED: Mobile-specific styles for the fixed bar */
     .fixed-contact-bar {
         font-size: 0.75rem;
         padding: 0.5rem 1rem;
-        justify-content: center;
+        /* Aligns items centrally for small screens */
+        justify-content: center; 
         gap: 1rem;
     }
     
     .fixed-contact-bar a, 
     .fixed-contact-bar span {
-        margin-left: 0; /* Remove extra margin on small screens */
+        margin-right: 0; 
     }
     
     .fixed-contact-bar span {
         display: none; /* Hide the "Need an Electrician?" text to save space */
     }
     
-    /* MODIFIED: Re-adjust body padding for the smaller bar on mobile, 
-       though 50px is likely still safe. */
+    /* MODIFIED: Adjust body padding for mobile bar height */
     body {
         padding-top: 40px; 
     }
