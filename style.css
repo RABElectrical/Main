@@ -48,8 +48,8 @@ body {
 /* Style for the text/phone/email links within the bar */
 .fixed-contact-bar a, 
 .fixed-contact-bar span {
-    /* 💥 FIXED: Set text/link color to WHITE globally */
-    color: white; 
+    /* 💥 CRITICAL FIX: Use !important to override conflicting color rules */
+    color: white !important; 
     text-decoration: none;
     font-weight: 700;
     /* Adjusted margin for left alignment on desktop */
@@ -60,7 +60,7 @@ body {
 /* Highlight the key links with your CTA color on hover */
 .fixed-contact-bar a:hover {
     /* Hover color remains orange for user feedback */
-    color: #FF8C00; 
+    color: #FF8C00 !important; 
     text-decoration: underline;
 }
 
