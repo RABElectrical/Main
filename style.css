@@ -92,32 +92,32 @@ nav a:hover {
         padding: 0.5rem 0; 
     }
     nav ul {
-        /* This is the key change for robust 3-up layout */
+        /* *** PRIMARY FIX: Use space-between for predictable horizontal spacing *** */
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: space-between; /* Spreads items out across the width */
         align-items: center; 
-        gap: 0.4rem; /* Reduced gap for more space */
         
-        /* Ensure the menu is permanently visible */
         position: static;
         height: auto; 
         overflow: visible;
         width: 100%;
         margin: 0;
-        padding: 0.25rem; /* Reduced overall padding for max space */
+        padding: 0.25rem 0.5rem; /* Padding to prevent links from touching screen edges */
+        gap: 0; /* Removing the ambiguous gap property */
     }
     nav li {
-        width: 31.5%; /* Reduced width for robustness across browsers */
+        width: 32%; /* Guaranteed to fit three on a line */
         text-align: center;
-        margin: 0;
+        margin-bottom: 0.5rem; /* Creates vertical space between rows */
+        margin-top: 0;
     }
     nav a {
         display: block;
         width: 100%;
         text-align: center;
-        font-size: 0.75rem; /* Slightly smaller font to ensure fit */
-        padding: 0.35rem 0.15rem; /* Reduced padding */
+        font-size: 0.75rem; /* Small font size */
+        padding: 0.35rem 0.15rem;
         white-space: nowrap; 
         overflow: hidden;
         text-overflow: ellipsis;
@@ -446,4 +446,3 @@ footer {
 .image-card img:hover {
     transform: scale(1.05);
 }
-
