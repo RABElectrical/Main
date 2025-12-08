@@ -59,7 +59,7 @@ nav a:hover {
     background-color: #0d2146;
 }
 
-/* Mobile Menu Toggle - Set to always be hidden, as requested */
+/* Mobile Menu Toggle - Set to always be hidden */
 .menu-toggle {
     display: none !important;
     cursor: pointer;
@@ -85,39 +85,42 @@ nav a:hover {
     }
     
     .menu-toggle {
-        display: none;
+        /* Ensure the mobile toggle button is hidden */
+        display: none !important; 
     }
 
     nav {
-        padding: 0.5rem 0; 
+        padding: 0.5rem 0.25rem; /* Small horizontal padding on the nav container */
     }
+    
+    /* *** CSS GRID FIX: Highly reliable 3-column layout *** */
     nav ul {
-        /* *** PRIMARY FIX: Use space-between for predictable horizontal spacing *** */
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between; /* Spreads items out across the width */
-        align-items: center; 
+        /* Change from flex to grid */
+        display: grid;
+        /* Force 3 columns of equal size (1fr) for a perfect 3-up alignment */
+        grid-template-columns: repeat(3, 1fr); 
+        gap: 0.25rem; /* Very small gap between all items */
         
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
         position: static;
         height: auto; 
         overflow: visible;
         width: 100%;
-        margin: 0;
-        padding: 0.25rem 0.5rem; /* Padding to prevent links from touching screen edges */
-        gap: 0; /* Removing the ambiguous gap property */
     }
+    
     nav li {
-        width: 32%; /* Guaranteed to fit three on a line */
         text-align: center;
-        margin-bottom: 0.5rem; /* Creates vertical space between rows */
-        margin-top: 0;
+        margin: 0;
     }
+    
     nav a {
         display: block;
         width: 100%;
         text-align: center;
-        font-size: 0.75rem; /* Small font size */
-        padding: 0.35rem 0.15rem;
+        font-size: 0.7rem; /* Smallest font size to guarantee text fits consistently */
+        padding: 0.5rem 0.1rem;
         white-space: nowrap; 
         overflow: hidden;
         text-overflow: ellipsis;
