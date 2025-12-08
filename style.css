@@ -2,7 +2,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
-/* GLOBAL RESET FOR CROSS-BROWSER CONSISTENCY (Applied to all) */
+/* GLOBAL RESET FOR CROSS-BROWSER CONSISTENCY */
 *, *::before, *::after {
     -webkit-box-sizing: border-box; /* Safari/iOS compatibility */
     box-sizing: border-box;
@@ -19,10 +19,9 @@ body {
 
 /* Header & Navigation */
 header {
-    /* Main header container for the logo and the nav */
-    background-color: #f0f0f0; /* Light background for the logo section */
+    background-color: #f0f0f0;
     color: #15316f;
-    padding: 1.5rem 2rem 0; /* Add bottom padding to separate from nav */
+    padding: 1.5rem 2rem 0;
     text-align: center;
     position: relative;
     display: flex;
@@ -35,7 +34,6 @@ header {
     margin-bottom: -0.75rem;
 }
 nav {
-    /* New nav container to handle the dark background */
     background-color: #15316f;
     width: 100%;
     padding: 1rem 0;
@@ -50,7 +48,7 @@ nav ul {
     flex-wrap: wrap;
 }
 nav a {
-    color: white; /* Changed link color for visibility on dark background */
+    color: white;
     text-decoration: none;
     font-weight: 700;
     padding: 0.5rem 1rem;
@@ -58,10 +56,10 @@ nav a {
     border-radius: 5px;
 }
 nav a:hover {
-    background-color: #0d2146; /* Darker blue on hover */
+    background-color: #0d2146;
 }
 
-/* Mobile Menu Toggle - Set to always be hidden */
+/* Mobile Menu Toggle - Set to always be hidden, as requested */
 .menu-toggle {
     display: none !important;
     cursor: pointer;
@@ -76,13 +74,11 @@ nav a:hover {
 .menu-toggle .bar {
     width: 100%;
     height: 3px;
-    background-color: #15316f; /* Changed bar color to dark blue */
+    background-color: #15316f;
     transition: all 0.3s ease-in-out;
 }
 
-/* ------------------------------------------------------------- */
-/* FIX FOR 3-UP LAYOUT ON CHROME/SAMSUNG/SAFARI (Screens up to 768px) */
-/* ------------------------------------------------------------- */
+/* MOBILE STYLES FOR PERMANENT, SMALL, TWO-ROW MENU (Screens up to 768px) */
 @media (max-width: 768px) {
     header {
         padding: 1rem 1rem 0;
@@ -96,44 +92,38 @@ nav a:hover {
         padding: 0.5rem 0; 
     }
     nav ul {
+        /* This is the key change for robust 3-up layout */
         flex-direction: row;
         flex-wrap: wrap;
-        
-        /* KEY FIX: Distribute remaining space evenly around the items */
-        justify-content: space-around; 
-        
-        /* Removed 'gap' to rely solely on justify-content for spacing */
-        gap: 0; 
-        
+        justify-content: center;
         align-items: center; 
+        gap: 0.4rem; /* Reduced gap for more space */
+        
+        /* Ensure the menu is permanently visible */
         position: static;
         height: auto; 
         overflow: visible;
         width: 100%;
         margin: 0;
-        padding: 0.5rem 0;
+        padding: 0.25rem; /* Reduced overall padding for max space */
     }
     nav li {
-        /* KEY FIX: Reduced width to guarantee 3 items fit on a line reliably in Chrome */
-        width: 30%; 
+        width: 31.5%; /* Reduced width for robustness across browsers */
         text-align: center;
-        margin: 0.25rem 0; /* Add vertical margin for separation between rows */
+        margin: 0;
     }
     nav a {
         display: block;
         width: 100%;
         text-align: center;
-        font-size: 0.8rem;
-        padding: 0.4rem 0.25rem;
-        white-space: nowrap;
+        font-size: 0.75rem; /* Slightly smaller font to ensure fit */
+        padding: 0.35rem 0.15rem; /* Reduced padding */
+        white-space: nowrap; 
         overflow: hidden;
         text-overflow: ellipsis;
     }
     
-    /* Keep other mobile styles for content/gallery */
-    .container {
-        padding: 1.5rem 1rem;
-    }
+    /* Content mobile styles */
     .image-gallery-grid {
         flex-direction: column;
         align-items: center;
@@ -183,7 +173,7 @@ p {
 .cta-button {
     display: inline-block;
     padding: 1rem 2rem;
-    background-color: #FF8C00; /* Changed to orange */
+    background-color: #FF8C00;
     color: white;
     text-decoration: none;
     border-radius: 8px;
@@ -193,7 +183,7 @@ p {
     transition: background-color 0.3s;
 }
 .cta-button:hover {
-    background-color: #CC7000; /* Darker orange on hover */
+    background-color: #CC7000;
 }
 .services-list ul {
     list-style-type: none;
@@ -266,8 +256,8 @@ p {
 
 /* Footer */
 footer {
-    background-color: #15316f; /* Changed background color to match nav */
-    color: white; /* Changed text color */
+    background-color: #15316f;
+    color: white;
     text-align: center;
     padding: 1.5rem;
     margin-top: 2rem;
@@ -304,7 +294,7 @@ footer {
 .contact-form .submit-button {
     width: 100%;
     padding: 1rem;
-    background-color: #FF8C00; /* Changed to orange */
+    background-color: #FF8C00;
     color: white;
     border: none;
     border-radius: 8px;
@@ -314,7 +304,7 @@ footer {
     transition: background-color 0.3s;
 }
 .contact-form .submit-button:hover {
-    background-color: #CC7000; /* Darker orange on hover */
+    background-color: #CC7000;
 }
 /* New Style for Intro List on Maintenance Package Page */
 .intro-list {
@@ -349,11 +339,11 @@ footer {
     margin-top: 2rem;
 }
 .testimonial-card {
-    background-color: #f0f4f8; /* Light blue background */
+    background-color: #f0f4f8;
     padding: 1.5rem;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    border-left: 5px solid #15316f; /* Blue accent line */
+    border-left: 5px solid #15316f;
     transition: all 0.3s ease-in-out;
 }
 .testimonial-card:hover {
@@ -400,8 +390,8 @@ footer {
 
 /* NEW STYLE for the slogan on the homepage */
 .slogan-text {
-    color: #333333; /* Standard black/dark gray text */
-    font-weight: normal; /* Removes the default bold from the h3 tag */
+    color: #333333;
+    font-weight: normal;
 }
 
 /* NEW STYLE for the R.A.B tagline on the homepage */
@@ -416,7 +406,7 @@ footer {
 .section-logo {
     position: absolute;
     margin: 0 0 60px auto;
-    width: 10px; /* Adjust the logo size as needed */
+    width: 10px;
     height: auto;
 }
 
@@ -434,7 +424,7 @@ footer {
 }
 
 .image-card {
-    flex-basis: 30%; /* Allows 3 items per row with some spacing */
+    flex-basis: 30%;
     flex-grow: 1;
     overflow: hidden;
     border-radius: 12px;
@@ -456,3 +446,4 @@ footer {
 .image-card img:hover {
     transform: scale(1.05);
 }
+
