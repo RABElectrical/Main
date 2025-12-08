@@ -61,7 +61,7 @@ nav a:hover {
     background-color: #0d2146; /* Darker blue on hover */
 }
 
-/* Mobile Menu Toggle - Set to always be hidden, as requested */
+/* Mobile Menu Toggle - Set to always be hidden */
 .menu-toggle {
     display: none !important;
     cursor: pointer;
@@ -80,10 +80,12 @@ nav a:hover {
     transition: all 0.3s ease-in-out;
 }
 
-/* NEW MOBILE STYLES FOR PERMANENT, SMALL, TWO-ROW MENU (Screens up to 768px) */
+/* ------------------------------------------------------------- */
+/* FIX FOR 3-UP LAYOUT ON CHROME/SAMSUNG/SAFARI (Screens up to 768px) */
+/* ------------------------------------------------------------- */
 @media (max-width: 768px) {
     header {
-        padding: 1rem 1rem 0; /* Smaller padding on mobile */
+        padding: 1rem 1rem 0;
     }
     
     .menu-toggle {
@@ -91,17 +93,19 @@ nav a:hover {
     }
 
     nav {
-        /* Reduced padding for a smaller feel */
         padding: 0.5rem 0; 
     }
     nav ul {
-        /* Set to flex-row and wrap for 3-up layout */
-        flex-direction: row;    /* Ensure horizontal layout */
-        flex-wrap: wrap;        /* Allow wrapping to the second line */
-        justify-content: center;
-        align-items: center; 
-        gap: 0.5rem; /* Gap between all items (horizontal and vertical) */
+        flex-direction: row;
+        flex-wrap: wrap;
         
+        /* KEY FIX: Distribute remaining space evenly around the items */
+        justify-content: space-around; 
+        
+        /* Removed 'gap' to rely solely on justify-content for spacing */
+        gap: 0; 
+        
+        align-items: center; 
         position: static;
         height: auto; 
         overflow: visible;
@@ -110,22 +114,26 @@ nav a:hover {
         padding: 0.5rem 0;
     }
     nav li {
-        width: 32%; /* Ensures 3 items fit on one line with a small gap */
+        /* KEY FIX: Reduced width to guarantee 3 items fit on a line reliably in Chrome */
+        width: 30%; 
         text-align: center;
-        margin: 0;
+        margin: 0.25rem 0; /* Add vertical margin for separation between rows */
     }
     nav a {
         display: block;
         width: 100%;
         text-align: center;
-        font-size: 0.8rem; /* Make the text size smaller */
-        padding: 0.4rem 0.25rem; /* Reduced padding for compact buttons */
-        white-space: nowrap; /* Prevents text from breaking within a button */
+        font-size: 0.8rem;
+        padding: 0.4rem 0.25rem;
+        white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
     }
     
     /* Keep other mobile styles for content/gallery */
+    .container {
+        padding: 1.5rem 1rem;
+    }
     .image-gallery-grid {
         flex-direction: column;
         align-items: center;
