@@ -2,9 +2,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
-/* GLOBAL RESET FOR CROSS-BROWSER CONSISTENCY */
+/* GLOBAL RESET FOR CROSS-BROWSER CONSISTENCY (Applied to all) */
 *, *::before, *::after {
-    /* This ensures padding and borders are included inside the element's total width/height. */
     -webkit-box-sizing: border-box; /* Safari/iOS compatibility */
     box-sizing: border-box;
 }
@@ -62,9 +61,9 @@ nav a:hover {
     background-color: #0d2146; /* Darker blue on hover */
 }
 
-/* Mobile Menu Toggle */
+/* Mobile Menu Toggle - Set to always be hidden, as requested */
 .menu-toggle {
-    display: none;
+    display: none !important;
     cursor: pointer;
     position: absolute;
     top: 2rem;
@@ -81,6 +80,61 @@ nav a:hover {
     transition: all 0.3s ease-in-out;
 }
 
+/* NEW MOBILE STYLES FOR PERMANENT, SMALL, TWO-ROW MENU (Screens up to 768px) */
+@media (max-width: 768px) {
+    header {
+        padding: 1rem 1rem 0; /* Smaller padding on mobile */
+    }
+    
+    .menu-toggle {
+        display: none;
+    }
+
+    nav {
+        /* Reduced padding for a smaller feel */
+        padding: 0.5rem 0; 
+    }
+    nav ul {
+        /* Set to flex-row and wrap for 3-up layout */
+        flex-direction: row;    /* Ensure horizontal layout */
+        flex-wrap: wrap;        /* Allow wrapping to the second line */
+        justify-content: center;
+        align-items: center; 
+        gap: 0.5rem; /* Gap between all items (horizontal and vertical) */
+        
+        position: static;
+        height: auto; 
+        overflow: visible;
+        width: 100%;
+        margin: 0;
+        padding: 0.5rem 0;
+    }
+    nav li {
+        width: 32%; /* Ensures 3 items fit on one line with a small gap */
+        text-align: center;
+        margin: 0;
+    }
+    nav a {
+        display: block;
+        width: 100%;
+        text-align: center;
+        font-size: 0.8rem; /* Make the text size smaller */
+        padding: 0.4rem 0.25rem; /* Reduced padding for compact buttons */
+        white-space: nowrap; /* Prevents text from breaking within a button */
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    /* Keep other mobile styles for content/gallery */
+    .image-gallery-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    .image-card {
+        width: 100%;
+        max-width: 400px;
+    }
+}
 /* Main Content Containers */
 .container {
     max-width: 900px;
@@ -231,7 +285,7 @@ footer {
     padding: 0.75rem;
     border: 1px solid #ccc;
     border-radius: 5px;
-    /* Removed redundant box-sizing as it's handled globally */
+    box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     font-size: 1rem;
 }
@@ -393,72 +447,4 @@ footer {
 
 .image-card img:hover {
     transform: scale(1.05);
-}
-
-/* -------------------------------------- */
-/* MOBILE RESPONSIVENESS ADJUSTMENTS (max-width: 768px) */
-/* -------------------------------------- */
-@media (max-width: 768px) {
-    /* GENERAL CONTAINER ADJUSTMENTS */
-    .container {
-        /* Decrease horizontal padding for more screen space on small devices */
-        padding: 1.5rem 1rem;
-    }
-    
-    /* HEADER AND NAVIGATION ADJUSTMENTS */
-    header {
-        padding: 1rem 1rem 0;
-    }
-    nav {
-        padding: 0;
-    }
-    nav ul {
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        background-color: #15316f; /* Keep dark background for mobile nav */
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        height: 0;
-        overflow: hidden;
-        transition: height 0.3s ease-in-out;
-        margin: 0;
-        padding: 0;
-    }
-    nav ul.active {
-        height: 200px;
-        padding: 1rem 0;
-    }
-    nav li {
-        width: 100%;
-    }
-    nav a {
-        display: block;
-        width: 100%;
-        text-align: center; /* Ensure links are centered */
-    }
-    .menu-toggle {
-        display: flex;
-    }
-    .menu-toggle.active .bar:nth-child(2) {
-        opacity: 0;
-    }
-    .menu-toggle.active .bar:nth-child(1) {
-        transform: translateY(11px) rotate(45deg);
-    }
-    .menu-toggle.active .bar:nth-child(3) {
-        transform: translateY(-11px) rotate(-45deg);
-    }
-
-    /* GALLERY ADJUSTMENTS */
-    .image-gallery-grid {
-        flex-direction: column;
-        align-items: center;
-    }
-    .image-card {
-        width: 100%;
-        max-width: 400px; /* Prevents images from getting too wide on mobile */
-    }
 }
