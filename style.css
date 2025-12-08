@@ -2,6 +2,13 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
+/* GLOBAL RESET FOR CROSS-BROWSER CONSISTENCY */
+*, *::before, *::after {
+    /* This ensures padding and borders are included inside the element's total width/height. */
+    -webkit-box-sizing: border-box; /* Safari/iOS compatibility */
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #f9f9f9;
@@ -72,52 +79,6 @@ nav a:hover {
     height: 3px;
     background-color: #15316f; /* Changed bar color to dark blue */
     transition: all 0.3s ease-in-out;
-}
-@media (max-width: 768px) {
-    header {
-        padding-bottom: 0;
-    }
-    nav {
-        padding: 0;
-    }
-    nav ul {
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        background-color: #15316f; /* Keep dark background for mobile nav */
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        height: 0;
-        overflow: hidden;
-        transition: height 0.3s ease-in-out;
-        margin: 0;
-        padding: 0;
-    }
-    nav ul.active {
-        height: 200px;
-        padding: 1rem 0;
-    }
-    nav li {
-        width: 100%;
-    }
-    nav a {
-        display: block;
-        width: 100%;
-    }
-    .menu-toggle {
-        display: flex;
-    }
-    .menu-toggle.active .bar:nth-child(2) {
-        opacity: 0;
-    }
-    .menu-toggle.active .bar:nth-child(1) {
-        transform: translateY(11px) rotate(45deg);
-    }
-    .menu-toggle.active .bar:nth-child(3) {
-        transform: translateY(-11px) rotate(-45deg);
-    }
 }
 
 /* Main Content Containers */
@@ -270,7 +231,7 @@ footer {
     padding: 0.75rem;
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-sizing: border-box;
+    /* Removed redundant box-sizing as it's handled globally */
     font-family: 'Poppins', sans-serif;
     font-size: 1rem;
 }
@@ -434,7 +395,64 @@ footer {
     transform: scale(1.05);
 }
 
+/* -------------------------------------- */
+/* MOBILE RESPONSIVENESS ADJUSTMENTS (max-width: 768px) */
+/* -------------------------------------- */
 @media (max-width: 768px) {
+    /* GENERAL CONTAINER ADJUSTMENTS */
+    .container {
+        /* Decrease horizontal padding for more screen space on small devices */
+        padding: 1.5rem 1rem;
+    }
+    
+    /* HEADER AND NAVIGATION ADJUSTMENTS */
+    header {
+        padding: 1rem 1rem 0;
+    }
+    nav {
+        padding: 0;
+    }
+    nav ul {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        background-color: #15316f; /* Keep dark background for mobile nav */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+        transition: height 0.3s ease-in-out;
+        margin: 0;
+        padding: 0;
+    }
+    nav ul.active {
+        height: 200px;
+        padding: 1rem 0;
+    }
+    nav li {
+        width: 100%;
+    }
+    nav a {
+        display: block;
+        width: 100%;
+        text-align: center; /* Ensure links are centered */
+    }
+    .menu-toggle {
+        display: flex;
+    }
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: translateY(11px) rotate(45deg);
+    }
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: translateY(-11px) rotate(-45deg);
+    }
+
+    /* GALLERY ADJUSTMENTS */
     .image-gallery-grid {
         flex-direction: column;
         align-items: center;
