@@ -1,10 +1,9 @@
 /* style.css */
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
-/* GLOBAL RESET FOR CROSS-BROWSER CONSISTENCY */
+/* GLOBAL RESET */
 *, *::before, *::after {
-    -webkit-box-sizing: border-box; /* Safari/iOS compatibility */
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 
@@ -17,27 +16,77 @@ body {
     line-height: 1.6;
 }
 
-/* Header & Navigation */
+/* --- HEADER & NAVIGATION --- */
 header {
     background-color: #f0f0f0;
     color: #15316f;
-    padding: 1.5rem 2rem 0;
-    text-align: center;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding: 0;
+    width: 100%;
 }
+
+/* GRID LAYOUT: 
+   Column 1 (1fr): Empty space (Left)
+   Column 2 (auto): Logo (Center)
+   Column 3 (1fr): Contact Info (Right)
+*/
+.header-top {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr; 
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+}
+
+.logo-wrapper {
+    grid-column: 2; /* Forces logo into the center column */
+    display: block;
+    text-decoration: none;
+    justify-self: center;
+}
+
 .header-logo {
     width: 250px;
     height: auto;
-    margin-bottom: -0.75rem;
+    display: block;
 }
+
+/* Contact Section */
+.header-contact {
+    grid-column: 3; /* Forces contact to the right column */
+    justify-self: end; /* Aligns content to the far right */
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.header-phone {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #15316f;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.header-phone:hover {
+    color: #FF8C00;
+}
+
+.header-email {
+    font-size: 0.9rem;
+    color: #555;
+    text-decoration: none;
+}
+
+/* Navigation Bar */
 nav {
     background-color: #15316f;
     width: 100%;
-    padding: 1rem 0;
+    padding: 0;
 }
+
 nav ul {
     list-style-type: none;
     padding: 0;
@@ -46,97 +95,75 @@ nav ul {
     justify-content: center;
     gap: 2rem;
     flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 0 auto;
 }
+
 nav a {
     color: white;
     text-decoration: none;
     font-weight: 700;
-    padding: 0.5rem 1rem;
+    padding: 1rem 1.5rem;
+    display: block;
     transition: background-color 0.3s;
-    border-radius: 5px;
 }
+
 nav a:hover {
-    background-color: #0d2146;
+    background-color: #FF8C00;
 }
 
-/* Mobile Menu Toggle - Set to always be hidden */
-.menu-toggle {
-    display: none !important;
-    cursor: pointer;
-    position: absolute;
-    top: 2rem;
-    right: 2rem;
-    width: 30px;
-    height: 25px;
-    flex-direction: column;
-    justify-content: space-between;
-}
-.menu-toggle .bar {
-    width: 100%;
-    height: 3px;
-    background-color: #15316f;
-    transition: all 0.3s ease-in-out;
-}
-
-/* MOBILE STYLES FOR PERMANENT, SMALL, TWO-ROW MENU (Screens up to 768px) */
+/* --- MOBILE STYLES (Max-width 768px) --- */
 @media (max-width: 768px) {
-    header {
-        padding: 1rem 1rem 0;
-    }
-    
-    .menu-toggle {
-        /* Ensure the mobile toggle button is hidden */
-        display: none !important; 
+    .header-top {
+        display: flex; /* Switch back to flex for vertical stacking */
+        flex-direction: column;
+        padding: 1rem;
+        text-align: center;
     }
 
-    nav {
-        padding: 0.5rem 0.25rem; /* Small horizontal padding on the nav container */
+    .logo-wrapper {
+        grid-column: auto; /* Reset grid positioning */
+        margin-bottom: 1rem;
     }
-    
-    /* *** CSS GRID FIX: Highly reliable 3-column layout *** */
+
+    .header-logo {
+        width: 200px;
+    }
+
+    .header-contact {
+        grid-column: auto; /* Reset grid positioning */
+        justify-self: center;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    /* Grid layout for mobile menu */
     nav ul {
-        /* Change from flex to grid */
         display: grid;
-        /* Force 3 columns of equal size (1fr) for a perfect 3-up alignment */
-        grid-template-columns: repeat(3, 1fr); 
-        gap: 0.25rem; /* Very small gap between all items */
-        
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        position: static;
-        height: auto; 
-        overflow: visible;
-        width: 100%;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1px;
     }
-    
-    nav li {
-        text-align: center;
-        margin: 0;
-    }
-    
+
     nav a {
-        display: block;
-        width: 100%;
+        font-size: 0.8rem;
+        padding: 0.75rem 0.25rem;
         text-align: center;
-        font-size: 0.7rem; /* Smallest font size to guarantee text fits consistently */
-        padding: 0.5rem 0.1rem;
-        white-space: nowrap; 
-        overflow: hidden;
-        text-overflow: ellipsis;
+        background-color: #15316f;
+        border: 1px solid #0d2146;
     }
-    
-    /* Content mobile styles */
+
     .image-gallery-grid {
         flex-direction: column;
         align-items: center;
     }
+    
     .image-card {
         width: 100%;
         max-width: 400px;
     }
 }
-/* Main Content Containers */
+
+/* --- MAIN CONTENT & LAYOUT --- */
 .container {
     max-width: 900px;
     margin: 2rem auto;
@@ -145,34 +172,32 @@ nav a:hover {
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
+
 h1, h2 {
     color: #15316f;
     font-size: 2rem;
     text-align: center;
     margin-bottom: 1.5rem;
 }
+
 h3 {
     color: #15316f;
     font-size: 1.5rem;
     text-align: center;
 }
+
 p {
     text-align: left;
     color: #555555;
 }
 
-/* Specific Section Styles */
-.hero {
-    text-align: center;
-}
-.hero p {
-    font-size: 1.1rem;
-    text-align: center;
-}
-.blue-bold {
-    color: #15316f;
-    font-weight: 700;
-}
+/* --- COMPONENTS --- */
+.blue-bold { color: #15316f; font-weight: 700; }
+.blue-spark { color: #15316f; font-weight: 700; }
+.intro-sentence { display: block; font-weight: 700; color: #15316f; margin-bottom: 1rem; }
+.section-intro { text-align: center; font-size: 1.1rem; margin-bottom: 1.5rem; }
+
+/* Buttons */
 .cta-button {
     display: inline-block;
     padding: 1rem 2rem;
@@ -184,10 +209,23 @@ p {
     font-weight: 700;
     margin-top: 1.5rem;
     transition: background-color 0.3s;
+    text-align: center;
 }
-.cta-button:hover {
-    background-color: #CC7000;
+
+.cta-button:hover { background-color: #CC7000; }
+
+.secondary-cta { background-color: #e9e9e9; color: #15316f; }
+.secondary-cta:hover { background-color: #d1d1d1; }
+
+.cta-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
 }
+
+/* Services List */
 .services-list ul {
     list-style-type: none;
     padding: 0;
@@ -195,6 +233,11 @@ p {
     grid-template-columns: 1fr;
     gap: 10px;
 }
+
+@media (min-width: 768px) {
+    .services-list ul { grid-template-columns: 1fr 1fr; }
+}
+
 .services-list li {
     background: #f9f9f9;
     padding: 1rem;
@@ -203,12 +246,45 @@ p {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease-in-out;
 }
+
 .services-list li:hover {
     background-color: #FF8C00;
     transform: translateY(-3px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     color: white;
 }
+
+/* Packages */
+.packages-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.package-card {
+    background: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    flex: 1 1 250px;
+    text-align: center;
+    border-top: 5px solid #ccc;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.package-card.bronze { border-color: #cd7f32; }
+.package-card.silver { border-color: #c0c0c0; }
+.package-card.gold { border-color: #ffd700; }
+
+.package-cta {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #15316f;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* Path to Peace of Mind */
 .path-to-mind ol {
     list-style-type: none;
     padding: 0;
@@ -216,6 +292,7 @@ p {
     flex-direction: column;
     gap: 1rem;
 }
+
 .path-to-mind ol li {
     background: #f9f9f9;
     padding: 1rem;
@@ -224,123 +301,16 @@ p {
     color: #15316f;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    transition: all 0.3s ease-in-out;
-}
-.path-to-mind ol li:hover {
-    background-color: #FF8C00;
-    transform: translateY(-3px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    color: white;
 }
 
-/* Service Filter Buttons */
-.filter-buttons {
-    text-align: center;
-    margin-bottom: 2rem;
-}
-.filter-buttons a {
-    display: inline-block;
-    padding: 0.5rem 1.5rem;
-    background-color: #e9e9e9;
-    color: #15316f;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: 700;
-    margin: 0 5px;
-    transition: background-color 0.3s;
-}
-.filter-buttons a:hover {
-    background-color: #d1d1d1;
-}
-.filter-buttons a.active {
-    background-color: #15316f;
-    color: white;
-}
-
-/* Footer */
-footer {
-    background-color: #15316f;
-    color: white;
-    text-align: center;
-    padding: 1.5rem;
-    margin-top: 2rem;
-}
-
-/* Contact Form */
-.contact-form {
-    max-width: 600px;
-    margin: 2rem auto;
-}
-.contact-form .form-group {
-    margin-bottom: 1rem;
-    text-align: left;
-}
-.contact-form label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: #15316f;
-    font-weight: 700;
-}
-.contact-form input, .contact-form textarea {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    font-size: 1rem;
-}
-.contact-form textarea {
-    resize: vertical;
-    min-height: 150px;
-}
-.contact-form .submit-button {
-    width: 100%;
-    padding: 1rem;
-    background-color: #FF8C00;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.2rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-.contact-form .submit-button:hover {
-    background-color: #CC7000;
-}
-/* New Style for Intro List on Maintenance Package Page */
-.intro-list {
-    list-style-type: disc;
-    text-align: left;
-    margin-bottom: 2rem;
-}
-.intro-list li {
-    background: none;
-    box-shadow: none;
-    padding-left: 0;
-    margin-bottom: 1rem;
-    font-weight: 700;
-}
-.intro-list li .blue-bold {
-    display: inline;
-}
-
-/* NEW STYLE for the opening sentence of each section */
-.intro-sentence {
-    display: block;
-    font-weight: 700;
-    color: #15316f;
-    margin-bottom: 1rem;
-}
-
-/* Testimonials Section */
+/* Testimonials */
 .testimonial-container {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
     margin-top: 2rem;
 }
+
 .testimonial-card {
     background-color: #f0f4f8;
     padding: 1.5rem;
@@ -349,75 +319,31 @@ footer {
     border-left: 5px solid #15316f;
     transition: all 0.3s ease-in-out;
 }
+
 .testimonial-card:hover {
     background-color: #FF8C00;
     transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-    border-left: 5px solid white;
+    border-left-color: white;
 }
-.testimonial-card:hover p,
-.testimonial-card:hover h4 {
-    color: white;
-}
+
+.testimonial-card:hover p, .testimonial-card:hover h4 { color: white; }
+
 .testimonial-card p {
     font-style: italic;
     font-size: 1.1rem;
     color: #444444;
     margin-bottom: 1rem;
 }
+
 .testimonial-card h4 {
     text-align: right;
     font-size: 1rem;
     color: #15316f;
     margin: 0;
-}
-
-/* Homepage specific styles */
-.services-summary .cta-group {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 2rem;
-}
-
-.secondary-cta {
-    background-color: #e9e9e9;
-    color: #15316f;
-    transition: background-color 0.3s;
-}
-
-.secondary-cta:hover {
-    background-color: #d1d1d1;
-}
-
-/* NEW STYLE for the slogan on the homepage */
-.slogan-text {
-    color: #333333;
-    font-weight: normal;
-}
-
-/* NEW STYLE for the R.A.B tagline on the homepage */
-.blue-spark {
-    color: #15316f;
     font-weight: 700;
 }
-.logo-container {
-    position: relative;
-}
 
-.section-logo {
-    position: absolute;
-    margin: 0 0 60px auto;
-    width: 10px;
-    height: auto;
-}
-
-/* Gallery Styles */
-.gallery-section {
-    margin: 2rem 0;
-}
-
+/* Gallery */
 .image-gallery-grid {
     display: flex;
     flex-wrap: wrap;
@@ -432,11 +358,6 @@ footer {
     overflow: hidden;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
-}
-
-.image-card:hover {
-    transform: translateY(-5px);
 }
 
 .image-card img {
@@ -446,6 +367,48 @@ footer {
     transition: transform 0.3s;
 }
 
-.image-card img:hover {
-    transform: scale(1.05);
+.image-card img:hover { transform: scale(1.05); }
+
+/* Contact Form */
+.contact-form { max-width: 600px; margin: 2rem auto; }
+.form-group { margin-bottom: 1rem; text-align: left; }
+.contact-form label { display: block; margin-bottom: 0.5rem; color: #15316f; font-weight: 700; }
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"],
+.contact-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+}
+
+.contact-form textarea { resize: vertical; min-height: 150px; }
+
+.submit-button {
+    width: 100%;
+    padding: 1rem;
+    background-color: #FF8C00;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-button:hover { background-color: #CC7000; }
+.checkbox-group { display: flex; align-items: flex-start; gap: 10px; }
+
+/* Footer */
+footer {
+    background-color: #15316f;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 2rem;
 }
